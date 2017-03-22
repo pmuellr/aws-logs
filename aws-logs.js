@@ -6,7 +6,7 @@ exports.cli = cli
 
 // Gets AWS log entries from the ncm registry proxy servers.
 
-const DefaultTimeStart = '1'
+const DefaultTimeStart = '24'
 const DefaultTimeEnd = new Date().toISOString()
 
 const fs = require('fs')

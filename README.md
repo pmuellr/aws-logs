@@ -65,6 +65,10 @@ This package is licensed under the MIT license.  See the
 changelog
 ================================================================================
 
+2017-03-22 - version 1.0.2
+
+* change default start time from 1 to 24 hours from now
+
 2017-03-22 - version 1.0.1
 
 * add --debug flag
