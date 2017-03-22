@@ -1,6 +1,6 @@
 {
   "name": "aws-logs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "print AWS log groups, streams, and events",
   "license": "MIT",
   "author": "Patrick Mueller <pmuellr@apache.org> (https://github.com/pmuellr)",

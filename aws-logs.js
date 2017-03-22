@@ -28,11 +28,12 @@ function cli () {
   // parse args
   const minimistOpts = {
     string: ['timeStart', 'timeEnd'],
-    boolean: ['quiet', 'wholeEvent', 'help', 'version'],
+    boolean: ['debug', 'quiet', 'wholeEvent', 'help', 'version'],
     alias: {
       s: 'timeStart',
       e: 'timeEnd',
       w: 'wholeEvent',
+      d: 'debug',
       q: 'quiet',
       h: 'help',
       v: 'version'
@@ -47,7 +48,14 @@ function cli () {
   if (argv._.length === 0) help()
 
   // set logger quiet value
-  if (argv.quiet) Logger.quiet(true)
+  if (argv.quiet) {
+    Logger.quiet(true)
+  }
+
+  // set logger debugging value
+  if (argv.debug || process.env.DEBUG != null || process.env.LOGLEVEL === 'debug') {
+    Logger.debugging(true)
+  }
 
   // set up cmd, args, opts
   const cmd = argv._.shift()
@@ -76,6 +84,9 @@ function cli () {
   } else {
     opts.timeEnd = opts.timeEnd.getTime()
   }
+
+  Logger.debug(`calculated timeStart: ${new Date(opts.timeStart)}`)
+  Logger.debug(`calculated timeEnd:   ${new Date(opts.timeEnd)}`)
 
   // validate args
   const argsLen = args.length
