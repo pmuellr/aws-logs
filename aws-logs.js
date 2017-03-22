@@ -66,11 +66,15 @@ function cli () {
   if (opts.timeStart == null) {
     Logger.log(`invalid timeStart option ${argv.timeStart}`)
     process.exit(1)
+  } else {
+    opts.timeStart = opts.timeStart.getTime()
   }
 
   if (opts.timeEnd == null) {
     Logger.log(`invalid timeEnd option ${argv.timeEnd}`)
     process.exit(1)
+  } else {
+    opts.timeEnd = opts.timeEnd.getTime()
   }
 
   // validate args
