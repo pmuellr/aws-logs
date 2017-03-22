@@ -1,0 +1,42 @@
+{
+  "name": "aws-logs",
+  "version": "1.0.0",
+  "description": "download logs from AWS",
+  "license": "MIT",
+  "author": "Patrick Mueller <pmuellr@apache.org> (https://github.com/pmuellr)",
+  "homepage": "https://github.com/pmuellr/aws-logs",
+  "main": "aws-logs.js",
+  "bin": {
+    "aws-logs": "./bin/aws-logs.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pmuellr/aws-logs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pmuellr/aws-logs/issues"
+  },
+  "scripts": {
+    "standard": "echo 'running standard' && standard -v",
+    "test": "npm -s run utest && npm -s run standard",
+    "utest": "node test/index.js | FORCE_COLOR=1 tap-spec",
+    "watch": "nodemon --exec 'npm -s test'"
+  },
+  "standard": {
+    "ignore": [
+      "/tmp/"
+    ]
+  },
+  "dependencies": {
+    "aws-sdk": "~2.30.0",
+    "chalk": "~1.1.3",
+    "minimist": "~1.2.0",
+    "yield-callback": "~1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "~1.11.0",
+    "standard": "~9.0.0",
+    "tap-spec": "~4.1.1",
+    "tape": "~4.6.0"
+  }
+}
