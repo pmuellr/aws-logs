@@ -20,6 +20,7 @@ const dateParser = require('./lib/date-parser')
 const logEvents = require('./lib/log-events')
 const logGroups = require('./lib/log-groups')
 const logStreams = require('./lib/log-streams')
+const CloudWatchLogs = require('./lib/CloudWatchLogs')
 
 const Logger = require('./lib/logger').getLogger()
 
@@ -27,12 +28,13 @@ const Logger = require('./lib/logger').getLogger()
 function cli () {
   // parse args
   const minimistOpts = {
-    string: ['timeStart', 'timeEnd'],
+    string: ['timeStart', 'timeEnd', 'region'],
     boolean: ['debug', 'quiet', 'wholeEvent', 'help', 'version'],
     alias: {
       s: 'timeStart',
       e: 'timeEnd',
       w: 'wholeEvent',
+      r: 'region',
       d: 'debug',
       q: 'quiet',
       h: 'help',
@@ -46,6 +48,11 @@ function cli () {
   if (argv.version) version()
   if (argv.help) help()
   if (argv._.length === 0) help()
+
+  // set region
+  if (argv.region) {
+    CloudWatchLogs.setRegion(argv.region)
+  }
 
   // set logger quiet value
   if (argv.quiet) {

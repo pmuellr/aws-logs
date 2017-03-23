@@ -25,6 +25,7 @@ options:
     -s --timeStart [date]  date for earliest log events (default: now - 24hr)
     -e --timeEnd [date]    date for latest log events (default: now)
     -w --wholeEvent        print whole event instead of event.message
+    -r --region            AWS region
     -d --debug             generate debugging messages
     -q --quiet             do not print status messages to stderr
     -h --help              print this help
@@ -39,6 +40,13 @@ The date value can be in one of several forms:
   * `yyyy-mm-ddThh:mm:ss`
 * unix epoch ms
 * number of hours before current time
+
+The region option will set the AWS region to operate on.  If not set, the
+region will be set from the first value available from:
+
+* environment variable `AWS_LOGS_REGION`
+* environment variable `AWS_DEFAULT_REGION`
+* `us-west-2`
 
 Debug logging is enabled with either the `--debug` flag, or having the
 environment variable `DEBUG` set to anything, or the environment variable
