@@ -73,6 +73,10 @@ This package is licensed under the MIT license.  See the
 changelog
 ================================================================================
 
+2017-03-23 - version 1.0.4
+
+* print calculated region with debug log
+
 2017-03-22 - version 1.0.3
 
 * add --region option

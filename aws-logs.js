@@ -44,24 +44,22 @@ function cli () {
 
   const argv = minimist(process.argv.slice(2), minimistOpts)
 
+  // set logger debugging value
+  if (argv.debug || process.env.DEBUG != null || process.env.LOGLEVEL === 'debug') {
+    Logger.debugging(true)
+  }
+
   // check for help and version options
   if (argv.version) version()
   if (argv.help) help()
   if (argv._.length === 0) help()
 
   // set region
-  if (argv.region) {
-    CloudWatchLogs.setRegion(argv.region)
-  }
+  CloudWatchLogs.setRegion(argv.region)
 
   // set logger quiet value
   if (argv.quiet) {
     Logger.quiet(true)
-  }
-
-  // set logger debugging value
-  if (argv.debug || process.env.DEBUG != null || process.env.LOGLEVEL === 'debug') {
-    Logger.debugging(true)
   }
 
   // set up cmd, args, opts
