@@ -73,6 +73,11 @@ This package is licensed under the MIT license.  See the
 changelog
 ================================================================================
 
+2017-04-03 - version 1.0.5
+
+* cut down some of the logging
+* filter streams searched by date searched
+
 2017-03-23 - version 1.0.4
 
 * print calculated region with debug log

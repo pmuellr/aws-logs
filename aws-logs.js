@@ -166,7 +166,7 @@ const cmdGet = yieldCallback(function * (args, opts, ycb) {
   }
 
   for (let logGroupName of logGroupNames) {
-    const logStreamNames = yield logStreams.list(logGroupName, regexStream, ycb)
+    const logStreamNames = yield logStreams.list(logGroupName, regexStream, opts, ycb)
     if (ycb.err) {
       Logger.log('error getting logStreams')
       return ycb.err
@@ -209,7 +209,7 @@ const cmdListStreams = yieldCallback(function * (args, opts, ycb) {
   }
 
   for (let logGroupName of logGroupNames) {
-    const logStreamNames = yield logStreams.list(logGroupName, regexStream, ycb)
+    const logStreamNames = yield logStreams.list(logGroupName, regexStream, opts, ycb)
     if (ycb.err) {
       Logger.log('error getting logStreams')
       return ycb.err
